@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎓 Smart Student Predictor</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+        }
+
+        .container {
+            width: 420px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 10px;
+            display: block;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .good { color: green; }
+        .average { color: orange; }
+        .poor { color: red; }
+
+        small {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🎓 Smart Student Performance</h2>
+    <p style="text-align:center;">Predict student performance easily 🚀</p>
+
+    <form action="/predict" method="post">
+
+        <label>👤 Gender</label>
+        <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label>🏫 Student Category</label>
+        <select name="race">
+            <option>group A</option>
+            <option>group B</option>
+            <option>group C</option>
+            <option>group D</option>
+            <option>group E</option>
+        </select>
+        <small>Academic grouping of student</small>
+
+        <label>🎓 Parent Education</label>
+        <select name="parent_edu">
+            <option>bachelor's degree</option>
+            <option>some college</option>
+            <option>master's degree</option>
+            <option>associate's degree</option>
+            <option>high school</option>
+            <option>some high school</option>
+        </select>
+
+        <label>🍱 Lunch Type</label>
+        <select name="lunch">
+            <option>standard</option>
+            <option>free/reduced</option>
+        </select>
+
+        <label>📘 Test Preparation</label>
+        <select name="test_prep">
+            <option>none</option>
+            <option>completed</option>
+        </select>
+
+        <button type="submit">🔮 Predict Performance</button>
+
+    </form>
+
+    <div class="result">
+        <h3>{{ prediction_text }}</h3>
+        <p>{{ score }}</p>
+    </div>
+
+</div>
+
+</body>
+</html>
